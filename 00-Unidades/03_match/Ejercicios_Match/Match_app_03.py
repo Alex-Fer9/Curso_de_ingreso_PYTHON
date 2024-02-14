@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+Nombre: Alex Leonel
+Apellido: fernandez
 ---
 Ejercicio: Match_03
 ---

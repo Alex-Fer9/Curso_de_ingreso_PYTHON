@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+Nombre: Alex Leonel
+Apellido: fernandez
 ---
 TP: IF_Iluminacion
 ---
@@ -43,8 +43,44 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
-        
+        marca = self.combobox_marca.get()
+        cantidad = self.combobox_cantidad.get()
+        cantidad = int(cantidad)
+
+        lampara_individual = 800
+        lampara_precio_xcantidad = lampara_individual * cantidad
+
+        if cantidad >= 6:
+            descuento50 = lampara_precio_xcantidad * 0.5
+            mensaje = f"El precio final con el 50% de descuento es {descuento50}"
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                descuento40 = lampara_precio_xcantidad * 0.4
+                mensaje = f"El precio final con el 40% de descuento es {descuento40}"
+            else:
+                descuento30 = lampara_precio_xcantidad * 0.3
+                mensaje = f"El precio final con el 30% de descuento es {descuento30}"
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento25 = lampara_precio_xcantidad * 0.25
+                mensaje = f"El precio final con el 25% de descuento es {descuento25}"
+            else:
+                descuento20 = lampara_precio_xcantidad * 0.2
+                mensaje = f"El precio final con el 20% de descuento es {descuento20}"
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento15 = lampara_precio_xcantidad * 0.15
+                mensaje = f"El precio final con el 15% de descuento es {descuento15}"
+            elif marca == "FelipeLamparas":
+                descuento10 = lampara_precio_xcantidad * 0.1
+                mensaje = f"El precio final con el 10% de descuento es {descuento10}"
+            else:
+                descuento5 = lampara_precio_xcantidad * 0.05
+                mensaje = f"El precio final con el 5% de descuento es {descuento5}"
+        else:
+            mensaje = f"El precio de la compra es {lampara_precio_xcantidad}"
+            
+        alert("Descuento", mensaje)
     
 if __name__ == "__main__":
     app = App()

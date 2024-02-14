@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+Nombre: Alex Leonel
+Apellido: fernandez
 ---
 TP: ES_Facturaciones
 ---
@@ -14,7 +14,7 @@ Enunciado:
 Para el departamento de facturación:
     A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
     B.	Ingresar tres precios de productos y mostrar el promedio de los mismos.
-	C.	ingresar tres precios de productos sumarlos y mostrar el precio final (más IVA 21%).
+	C.	ingresar tres precios de productos, sumarlos y mostrar el precio final (más IVA 21%).
 '''
 
 class App(customtkinter.CTk):
@@ -52,13 +52,46 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        importe1 = self.txt_importe_1.get()
+        importe2 = self.txt_importe_2.get()
+        importe3 = self.txt_importe_3.get()
+
+        importe1 = float(importe1)
+        importe2 = float(importe2)
+        importe3 = float(importe3)
+
+        total = importe3 + importe1 + importe2
+        alert("Facturación", "Total de la facturación: " + str(total))
+
 
     def btn_promedio_on_click(self):
-        pass
+        importe1 = self.txt_importe_1.get()
+        importe2 = self.txt_importe_2.get()
+        importe3 = self.txt_importe_3.get()
+
+        importe1 = float(importe1)
+        importe2 = float(importe2)
+        importe3 = float(importe3)
+
+        total = (importe1 + importe2 + importe3) / 3
+        alert("Facturación", "Promedio de facturación: " + str(total))
+        
 
     def btn_total_iva_on_click(self):
-        pass      
+        importe1 = self.txt_importe_1.get()
+        importe2 = self.txt_importe_2.get()
+        importe3 = self.txt_importe_3.get()
+
+        importe1 = float(importe1)
+        importe2 = float(importe2)
+        importe3 = float(importe3) 
+
+        total_sinIVA = importe3 + importe1 + importe2
+        IVA = total_sinIVA * 0.21
+        total = total_sinIVA + IVA
+        
+        alert("Facturación", "Total de la facturación con IVA incluído: " + str(total))
+
     
 if __name__ == "__main__":
     app = App()

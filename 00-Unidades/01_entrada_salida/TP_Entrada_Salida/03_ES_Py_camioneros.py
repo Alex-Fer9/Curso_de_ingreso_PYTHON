@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+Nombre: Alex Leonel
+Apellido: fernandez
 ---
 TP: ES_Camioneros
 ---
@@ -47,6 +47,8 @@ class App(customtkinter.CTk):
     
     def btn_cantidad_camiones_on_click(self):
         pass
+    #math.ceil 
+    #import math
 
     def btn_tiempo_llegada_on_click(self):
         pass
