@@ -47,40 +47,42 @@ class App(customtkinter.CTk):
         cantidad = self.combobox_cantidad.get()
         cantidad = int(cantidad)
 
-        lampara_individual = 800
-        lampara_precio_xcantidad = lampara_individual * cantidad
+        LAMPARA_INDIVIDUAL = 800
+        lampara_precio_xcantidad = LAMPARA_INDIVIDUAL * cantidad
+        descuento = 0
 
         if cantidad >= 6:
-            descuento50 = lampara_precio_xcantidad * 0.5
-            mensaje = f"El precio final con el 50% de descuento es {descuento50}"
+            descuento = 50
         elif cantidad == 5:
             if marca == "ArgentinaLuz":
-                descuento40 = lampara_precio_xcantidad * 0.4
-                mensaje = f"El precio final con el 40% de descuento es {descuento40}"
+                descuento = 40
             else:
-                descuento30 = lampara_precio_xcantidad * 0.3
-                mensaje = f"El precio final con el 30% de descuento es {descuento30}"
+                descuento = 30
         elif cantidad == 4:
             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                descuento25 = lampara_precio_xcantidad * 0.25
-                mensaje = f"El precio final con el 25% de descuento es {descuento25}"
+                descuento = 25
             else:
-                descuento20 = lampara_precio_xcantidad * 0.2
-                mensaje = f"El precio final con el 20% de descuento es {descuento20}"
+                descuento = 20
         elif cantidad == 3:
             if marca == "ArgentinaLuz":
-                descuento15 = lampara_precio_xcantidad * 0.15
-                mensaje = f"El precio final con el 15% de descuento es {descuento15}"
+                descuento = 15
             elif marca == "FelipeLamparas":
-                descuento10 = lampara_precio_xcantidad * 0.1
-                mensaje = f"El precio final con el 10% de descuento es {descuento10}"
+                descuento = 10
             else:
-                descuento5 = lampara_precio_xcantidad * 0.05
-                mensaje = f"El precio final con el 5% de descuento es {descuento5}"
-        else:
+                descuento = 5
+
+        lampara_cdescueto = lampara_precio_xcantidad - (lampara_precio_xcantidad * descuento/100)
+        
+        if lampara_cdescueto > 4000:
+            lamp_cdescuento_adicional = lampara_cdescueto * 0.95
+            mensaje = f"El precio final con el {descuento}% de descuento y el 5% adicional por superar los $4000 es: ${lamp_cdescuento_adicional}"
+        elif cantidad <= 2:
             mensaje = f"El precio de la compra es {lampara_precio_xcantidad}"
+        else:
+            mensaje = f"El precio final con el {descuento}% de descueto es: {lampara_cdescueto}"
+
             
-        alert("Descuento", mensaje)
+        alert("Compra de lámparas", mensaje)
     
 if __name__ == "__main__":
     app = App()

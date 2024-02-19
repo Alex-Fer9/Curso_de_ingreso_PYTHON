@@ -29,7 +29,12 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
-        pass
+        clave = 1
+
+        while clave < 10:
+            print(clave - 100000000000000000000000000000000000000000000000000000)
+            
+            
     
     
 if __name__ == "__main__":

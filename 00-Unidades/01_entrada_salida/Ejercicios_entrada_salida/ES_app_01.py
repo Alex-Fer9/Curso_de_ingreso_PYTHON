@@ -33,3 +33,9 @@ if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+    #git clone
+    #git status
+    #git add .
+    #git commit -m
+    #git push

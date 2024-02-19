@@ -48,9 +48,9 @@ class App(customtkinter.CTk):
         usuario = self.combobox_tipo.get()
 
         if edad >= 16 and usuario == "NATIVO":
-            mensaje = "puede votar"
+            mensaje = "Puede votar"
         elif edad >= 18 and usuario == "NATURALIZADO":
-            mensaje = "puede votar"
+            mensaje = "Puede votar"
         else:
             mensaje = "NO puede votar"
 

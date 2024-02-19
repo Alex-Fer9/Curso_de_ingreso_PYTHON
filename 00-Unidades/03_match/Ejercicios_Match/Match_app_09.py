@@ -47,7 +47,7 @@ class App(customtkinter.CTk):
         
         self.label_destinos = customtkinter.CTkLabel(master=self, text="Destinos")
         self.label_destinos.grid(row=2, column=0, padx=20, pady=10)
-        destinos = ['Bariloche', 'Mar del plata', 'Cataratas', 'Cordoba']
+        destinos = ['Bariloche', 'Mar del plata', 'Cataratas', 'Córdoba']
         self.combobox_destino = customtkinter.CTkComboBox(master=self, values=destinos)
         self.combobox_destino.grid(row=3, column=0, padx=20, pady=(10, 10))
 
@@ -57,8 +57,50 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
+        estacion = self.combobox_estaciones.get()
+        lugar = self.combobox_destino.get()
+
+        VIAJES = 15000
+        descuento = 0
+        aumento = 0
+
+        match estacion:
+            case "Invierno":
+                if lugar == "Bariloche":
+                    aumento = 1.20
+                elif lugar == "Mar del plata":
+                    descuento = 20
+                else:
+                    descuento = 10
+            case "Verano":
+                if lugar == "Bariloche":
+                    descuento = 20
+                elif lugar == "Mar del plata":
+                    aumento = 1.20
+                else:
+                    aumento = 1.10
+            case _:
+                if lugar == "Córdoba":
+                    mensaje = f"El precio del viaje es ${VIAJES}"
+                else:
+                    aumento = 1.10
+
+        precio_descuento = VIAJES - (VIAJES * descuento / 100)
+        precio_aumento = VIAJES * aumento
+
+        aumento_str = aumento * 100 - 100
+
+        if aumento:
+            mensaje = f"El precio del viaje con el {aumento_str}% de aumento es ${precio_aumento}"
+        elif descuento:
+            mensaje = f"El precio del viaje con el {descuento}% de descuento es ${precio_descuento}"
+
+        alert(lugar, mensaje)
+
+
+
+
+        descuento
     
 if __name__ == "__main__":
     app = App()

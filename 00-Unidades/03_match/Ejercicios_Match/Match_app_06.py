@@ -35,11 +35,25 @@ class App(customtkinter.CTk):
         self.txt_hora.grid(row=0, column=1)
         
         self.btn_informar = customtkinter.CTkButton(master=self, text="Informar", command=self.btn_informar_on_click)
-        self.btn_informar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
+        self.btn_informar.grid(row=20, pady=20, columnspan=2, sticky="nsew")
         
     
     def btn_informar_on_click(self):
-        pass
+        hora = self.txt_hora.get()
+        hora = int(hora)
+
+        match hora:
+            case 7 | 8 | 9 | 10 | 11:
+                mensaje = "Es de mañana"
+            case 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19:
+                mensaje = "Es de tarde"
+            case 20 | 21 | 22 | 23 | 24 | 0 | 1 | 2 | 3 | 4 | 5 | 6:
+                mensaje = "Es de noche"
+            case _:
+                mensaje = "La hora no existe"
+
+        alert("Tiempo", mensaje)
+        self.txt_hora.delete(0, "end")
     
     
 if __name__ == "__main__":
