@@ -32,7 +32,7 @@ class App(customtkinter.CTk):
         contador = 1
 
         while contador < 10:
-            print(contador)
+            alert("Suma", contador)
             contador += 1
     
     

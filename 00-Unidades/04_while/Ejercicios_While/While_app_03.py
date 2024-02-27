@@ -29,10 +29,12 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
-        clave = 1
+        clave = prompt("Cave", "ingrese clave")
 
-        while clave < 10:
-            print(clave - 100000000000000000000000000000000000000000000000000000)
+        while clave != "utn750":
+            clave = prompt("error", "clave incorrecta")
+
+        print("hola")
             
             
     

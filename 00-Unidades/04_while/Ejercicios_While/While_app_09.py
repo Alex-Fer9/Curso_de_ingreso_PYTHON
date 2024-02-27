@@ -41,24 +41,21 @@ class App(customtkinter.CTk):
 
     def btn_comenzar_ingreso_on_click(self):
         contador = 0
-        
-        while contador < 3:
-            numero = prompt("Ingresar", "Ingrese los nomeros que quiera")
-            
+        maximo = 0
+        minimo = 0
+
+        while True:
+            numero = prompt("Ingresar", "Ingrese numeros")
             if numero == None:
                 break
-            
+
             numero = int(numero)
 
-            if contador == 0:
+            if numero > maximo or contador == 0:
                 maximo = numero
-                minimo = numero
-            else:
-                if numero > maximo:
-                    maximo = minimo
             
-                if numero < minimo:
-                    minimo = maximo
+            if numero < minimo or contador == 0:
+                minimo = numero
             
             contador += 1
         
@@ -66,6 +63,8 @@ class App(customtkinter.CTk):
         self.txt_minimo.delete(0, "end")
         self.txt_maximo.insert(0, maximo)
         self.txt_minimo.insert(0, minimo)
+
+        alert("e", f"Min {minimo}, Max {maximo}")
 
 
 

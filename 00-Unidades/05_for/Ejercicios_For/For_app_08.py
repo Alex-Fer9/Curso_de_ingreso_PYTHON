@@ -26,7 +26,28 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        contador_primos = 0
+        numero = prompt("f", "numero")
+        numero = int(numero)
+        bandera_primo = True
+
+        for i in range(2, numero+1):
+            bandera_primo =  True
+            print("-")
+            for j in range(2, i):
+                print(f"i={i} - j={j}")
+                if i % j == 0:
+                    bandera_primo = False
+                    print(f"if {i}, if {j}")
+            if bandera_primo:
+                contador_primos += 1
+                print(i)
+                 
+
+            
+        
+        print(f"Se encontraron {contador_primos} numeros primos")
+
     
 if __name__ == "__main__":
     app = App()

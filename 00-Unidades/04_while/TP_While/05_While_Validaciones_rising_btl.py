@@ -17,7 +17,7 @@ por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y lu
 Los datos requeridos son los siguientes:
     Apellido
     Edad, entre 18 y 90 años inclusive.
-    Estado civil, ["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"]
+    Estado civil, ["soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"]
     Número de legajo, numérico de 4 cifras, sin ceros a la izquierda.
 '''
 
@@ -54,7 +54,29 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt("Apellido", "Ingrese su apellido")
+
+        edad = prompt("Edad", "Ingrese su edad")
+        edad = int(edad)
+        while edad < 18 or edad > 90:
+            edad = prompt("Error", "La edad ingresada no es válida o no existe")
+            edad = int(edad)
+
+        estado = prompt("Esatdo civíl", "Ingrese su estado civíl")
+        while estado != "Soltero/a" and  estado != "Casado/a" and estado != "Divorciado/a" and estado != "Viudo/a":
+            estado = prompt("Error", "Ingrese su estado civíl con '/a' y mayuscula")
+
+        legajo = prompt("Numero de legajo", "Ingrese su numero de legajo")
+        legajo = int(legajo)
+        while legajo < 0 or legajo >= 10000:
+            legajo = prompt("Error", "El numero se legajo debería tener hasta 4 cifras")
+            legajo = int(legajo)
+        
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.insert(0, edad)
+        self.txt_tipo.insert(0, estado)
+        self.txt_legajo.insert(0, legajo)
+        
 
 
 if __name__ == "__main__":

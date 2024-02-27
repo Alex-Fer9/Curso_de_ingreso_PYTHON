@@ -28,9 +28,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
+        limite = 1
+        
+        for rango in range(limite, 6):
+            alert(rango, rango)
+
+        
        
-            
+#for rango in list(range(limite, -567000, -10)):            
 
 if __name__ == "__main__":
     app = App()

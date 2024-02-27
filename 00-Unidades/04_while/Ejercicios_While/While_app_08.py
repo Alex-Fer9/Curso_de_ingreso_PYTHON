@@ -36,8 +36,27 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        acumulador = 0
+        multiplicador = 1
 
+        while True:
+            numero = prompt("numero", "ingrese numero aleatorio")
+            if numero == None:
+                break
+            
+            numero =  int(numero)
+            
+            if numero > 0:
+                acumulador = acumulador + numero
+            elif numero < 0:
+                multiplicador = multiplicador * numero
+            else:
+                break
+
+        self.txt_suma_acumulada.delete(0, tkinter.END)
+        self.txt_producto.delete(0, tkinter.END)
+        self.txt_suma_acumulada.insert(0, acumulador)
+        self.txt_producto.insert(0, multiplicador)
     
 if __name__ == "__main__":
     app = App()

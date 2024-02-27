@@ -37,5 +37,7 @@ if __name__ == "__main__":
     #git clone
     #git status
     #git add .
-    #git commit -m
+    #git commit -m ""
     #git push
+    
+    #f = format

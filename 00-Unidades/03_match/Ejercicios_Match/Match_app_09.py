@@ -88,19 +88,14 @@ class App(customtkinter.CTk):
         precio_descuento = VIAJES - (VIAJES * descuento / 100)
         precio_aumento = VIAJES * aumento
 
-        aumento_str = aumento * 100 - 100
+        aumento_int = int(aumento * 100 - 100)
 
         if aumento:
-            mensaje = f"El precio del viaje con el {aumento_str}% de aumento es ${precio_aumento}"
+            mensaje = f"El precio del viaje con el {aumento_int}% de aumento es ${precio_aumento}"
         elif descuento:
             mensaje = f"El precio del viaje con el {descuento}% de descuento es ${precio_descuento}"
 
-        alert(lugar, mensaje)
-
-
-
-
-        descuento
+        alert(lugar, mensaje) 
     
 if __name__ == "__main__":
     app = App()

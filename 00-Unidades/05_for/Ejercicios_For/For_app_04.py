@@ -25,8 +25,14 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
-    def btn_mostrar_on_click(self):
-        pass
+    def btn_mostrar_on_click(self):        
+        
+        for i in range(0, 10):           
+            numero = prompt("Numero", "Ingrese un número")
+            numero = int(numero)
+            if numero == 9:
+                break
+        
         
     
 if __name__ == "__main__":
