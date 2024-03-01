@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 TP: For_UTN_Factory
 ---
@@ -28,7 +28,7 @@ cuya edad este entre 25 y 40, que se hayan postulado para un puesto Ssr.
 b. Nombre del postulante Jr con menor edad.
 c. Promedio de edades por género.
 d. Tecnologia con mas postulantes (solo hay una).
-e. Porcentaje de postulantes de cada genero. #
+e. Porcentaje de postulantes de cada genero. # 
 
 Todos los datos se ingresan por prompt y los resultados se muestran por consola (print)
 

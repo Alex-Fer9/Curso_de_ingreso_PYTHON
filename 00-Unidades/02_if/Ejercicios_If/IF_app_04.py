@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: if_04
 ---
@@ -39,7 +39,7 @@ class App(customtkinter.CTk):
 
         #if 13 < edad < 17
         if edad > 13 and edad < 17: 
-            alert("ver", "ADOLESCENTE")
+            alert("Inf.", "ADOLESCENTE")
 
         self.txt_edad.delete(0, tkinter.END) 
 

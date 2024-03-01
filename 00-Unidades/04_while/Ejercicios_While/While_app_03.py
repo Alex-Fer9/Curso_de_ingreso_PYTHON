@@ -7,7 +7,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: while_03
 ---

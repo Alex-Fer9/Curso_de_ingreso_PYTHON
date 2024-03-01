@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: if_08
 ---
@@ -47,8 +47,6 @@ class App(customtkinter.CTk):
 
         if edad > 17 and estado_civil == "Soltero":
             alert("INFORMACIÓN", "Es soltero y no es menor")
-
-
         
         
     

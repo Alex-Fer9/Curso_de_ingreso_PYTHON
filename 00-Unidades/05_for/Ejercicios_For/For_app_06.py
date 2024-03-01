@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: for_06
 ---
@@ -33,7 +33,7 @@ class App(customtkinter.CTk):
 
         for i in range(1, numero):
             if numero / i == 0:
-                print(numero)
+                print(i)
                 contador_divisores += 1
            
         print(f"La cantidad de divisores encontrados es {contador_divisores}")

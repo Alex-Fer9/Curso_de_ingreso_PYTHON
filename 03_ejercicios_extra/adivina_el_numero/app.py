@@ -36,8 +36,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = self.txt_numero.get()
+        numero = int(numero)
+        numero_random = random.randint(1, 100)
 
+        
+        if numero < numero_random:
+            alert("Aún falta", "Se quedó corto")
+        elif numero > numero_random:
+            alert("Ups!", "Se pasó del numero")
+        else:
+            alert("El juego terminó", f"Ganaste en x intentos")
+
+        self.txt_numero.delete(0, "end")
+
+        
+        
+        
 
 if __name__ == "__main__":
     app = App() 

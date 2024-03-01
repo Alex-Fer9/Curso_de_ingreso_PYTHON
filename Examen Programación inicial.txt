@@ -1,0 +1,118 @@
+import tkinter
+from tkinter.messagebox import showinfo as alert
+from tkinter.messagebox import askyesno as question
+from tkinter.simpledialog import askstring as prompt
+import customtkinter
+
+'''
+Nombre: Alex Leonel
+Apellido: Fernandez
+---
+Ejercicio: while_10
+---
+Enunciado:
+De 5 mascotas que ingresan a una veterinaria se deben tomar y validar los siguientes datos.
+Nombre
+Tipo (gato ,perro o exotico)
+Peso ( entre 10 y 80)
+Sexo( F o M )
+Edad(mayor a 0)
+Pedir datos por prompt y mostrar por print, se debe informar:
+Informe A- Cuál fue el sexo mas ingresado (F o M)
+Informe B- El porcentaje de mascotas hay por tipo (gato ,perro o exotico)
+Informe C- El nombre de la mascota más pesada
+Informe D- El sexo y nombre del gato más viejo
+Informe E- El promedio de edad de todas las mascotas
+
+'''
+
+class App(customtkinter.CTk):
+    
+    def __init__(self):
+        super().__init__()
+
+        self.title("UTN FRA")
+    
+        self.btn_mostrar = customtkinter.CTkButton(master=self, text="Comenzar Ingreso", command=self.btn_comenzar_ingreso_on_click)
+        self.btn_mostrar.grid(row=2, padx=20, pady=20, columnspan=2, sticky="nsew")
+
+
+    def btn_comenzar_ingreso_on_click(self):
+        contador_M = 0
+        contador_F = 0
+        contador_gato = 0
+        contador_perro = 0
+        contador_exotico = 0
+        maximo_peso = 0
+        maximo_edad_gato = 0
+        acumulador_edad = 0
+        for i in range(1, 5+1):
+            nombre = prompt("Nombe", "Nombre de la mascota")
+
+            tipo = prompt("tipo", "tipo de mascota")
+            while tipo != "gato" and tipo != "perro" and tipo != "exotico":
+                tipo = prompt("error", "Ingresar tipo de macota")
+
+            peso = prompt("peso", "ingresar peso")
+            peso = float(peso)
+            while peso < 10 or peso > 80:
+                peso = prompt("error", "peso entre 10 y 80")
+                peso = float(peso)
+
+            sexo = prompt("sexo", "ingrese el sexo")
+            while sexo != "F" and sexo != "M":
+                sexo = prompt("error", "Ingresar sexo")
+
+            edad = prompt("edad", "ingrese edad")
+            edad = int(edad)
+            while edad < 0:
+                edad = prompt("error", "edad no exite")
+                edad = int(edad)
+
+            match sexo:
+                case "F":
+                    contador_F += 1
+                case "M":
+                    contador_M += 1
+
+            match tipo:
+                case "perro":
+                    contador_perro += 1
+                case "gato":
+                    contador_gato += 1
+                    if edad > maximo_edad_gato:
+                        maximo_edad_gato = edad
+                        nombre_max_gato = nombre
+                case "exotico":
+                    contador_exotico += 1
+
+            if peso > maximo_peso:
+                maximo_peso = peso
+                nombre_max_peso = nombre
+
+            if edad > 0:
+                acumulador_edad += edad
+
+        promedio_edad = acumulador_edad / i
+
+        if contador_M > contador_F:
+            print("El sexo mas ingresado fue masculino")
+        else:
+            print("El sexo mas ingresado fue femenino")
+
+        total_tipo = contador_perro + contador_exotico + contador_gato
+        porcentaje_perro = (contador_perro * 100) / total_tipo
+        porcentaje_gato = (contador_gato * 100) / total_tipo
+        porcentaje_exotico = (contador_exotico * 100) / total_tipo
+
+        print(f"El porcentaje de mascota por tipo son: gato {porcentaje_gato}%. perro {porcentaje_perro}%. exotico {porcentaje_exotico}%")
+        print(f"{nombre_max_peso} fue la mascota mas pesada con {maximo_peso}kg")
+        print(f"{nombre_max_gato} de sexo {sexo} fue el gato mas viejo con {maximo_edad_gato} de edad")
+        print(f"el promedio de edad fue {promedio_edad}")
+
+
+
+if __name__ == "__main__":
+    app = App()
+    app.geometry("300x300")
+    app.mainloop()

@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: listas_05
 ---

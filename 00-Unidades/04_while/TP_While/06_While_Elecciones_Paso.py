@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 TP: While_elecciones_paso
 ---
@@ -81,7 +81,7 @@ class App(customtkinter.CTk):
             mensaje2 = f"{Nombre} de {edad} de edad fue el candidato con menos votos"
         
         alert("Informe", f"{mensaje1}. {mensaje2}. El promedio de edad de los candidatos es {promedio_edad}. El total de votos emitidos es {acumulador_votos}")
-
+ 
 
 if __name__ == "__main__":
     app = App()

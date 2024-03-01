@@ -6,7 +6,7 @@ import customtkinter
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: for_07
 ---
@@ -39,7 +39,7 @@ class App(customtkinter.CTk):
             print("Es primo")
         else:
             print("no es primo")
-
+ 
 
 
         

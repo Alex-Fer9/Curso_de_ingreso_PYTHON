@@ -8,7 +8,7 @@ import random
 
 '''
 Nombre: Alex Leonel
-Apellido: fernandez
+Apellido: Fernandez
 ---
 Ejercicio: for_01
 ---
